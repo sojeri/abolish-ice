@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 while read line	 
 do		
-	IFS='/' read -ra PARAMS <<< "$line"
-	D=${PARAMS[0]}
+	IFS='-' read -ra PARAMS <<< "$line"
+	Y=${PARAMS[0]}
 	M=${PARAMS[1]}
-	Y=${PARAMS[2]}
+	D=${PARAMS[2]}
 	I=180
 	d="$Y-$M-$D"
 	for i in $( eval echo {1..$I} )
@@ -15,5 +15,4 @@ do
 		export GIT_AUTHOR_DATE="$d 12:$m:$s"
 		git commit --date="$d 12:$m:$s" -m "$i on $d" --no-gpg-sign --allow-empty
 	done
-done < dates.txt
-git push origin master
+done < pixels.txt

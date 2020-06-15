@@ -1,13 +1,25 @@
-# Make your contributor graph say Abolish ICE
+# This is a shadow fork of rossabaker/abolish-ice-graphiti
+
+See [original repo](https://github.com/rossabaker/abolish-ice-graphiti).
+
+## Make your contributor graph say Abolish ICE
 
 ![Contributor Graph](graph.png)
 
+## Installing dependencies
+
+Run `yarn` to install deps.
+
 ## Usage
 
-1. Create a new repo.  I like `abolish-ice`
-1. Run it.
+1. Make any changes you want to persist between runs to the `develop` branch. If you commit them to `abolish-ice`, they will get wiped the next time you reset and paint your graph!
+2. Run reset.js to reset the `abolish-ice` branch
+3. Run paint.sh to paint your contributions graph anew
+
+Note that even if you've never run this before, you'll need to run reset first to generate the dates for the paint script.
 
 ```sh
+node reset.js
 ./paint.sh
 ```
 
@@ -27,4 +39,4 @@ The script needs to generate many more commits than your busiest days to make a 
 
 ## Credit
 
-Bootstrapped from [github-graffiti](https://github.com/mavrk/github-graffiti).
+Shadow forked from [rossabaker/abolish-ice-graphiti](https://github.com/rossabaker/abolish-ice-graphiti), which was bootstrapped from [github-graffiti](https://github.com/mavrk/github-graffiti).
