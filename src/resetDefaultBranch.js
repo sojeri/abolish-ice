@@ -39,18 +39,19 @@ function getHowManyCommitsToDelete(defaultBranchName, resetBranchName) {
  * resets the default branch (deletes any commit beyond the ones counted in reset).
  * this is not super safe: it only checks commit counts.
  * a better way to do this might be deleting the main branch and then recreating from reset.
+ * @param {*} isVerbose whether to verbose log
  * @param {*} defaultBranch the default branch name (abolish-ice if not specified)
  * @param {*} resetBranch the reset branch name (develop if not specified)
  */
-function resetDefaultBranch(defaultBranch = 'abolish-ice', resetBranch = 'develop') {
+function resetDefaultBranch(isVerbose, defaultBranch = 'abolish-ice', resetBranch = 'develop') {
     confirmDefaultBranchState(defaultBranch)
 
     let commitsToRemove = getHowManyCommitsToDelete(defaultBranch, resetBranch)
-    console.log(`deleting ${ commitsToRemove } from branch ${ defaultBranch }...`)
+    if (isVerbose) { console.log(`deleting ${ commitsToRemove } from branch ${ defaultBranch }...`) }
 
     if (commitsToRemove > 0) {
         execSync(`git reset HEAD~${commitsToRemove}`)
-        console.log('...finished! if you want to confirm, run\n\tgit rev-list --count HEAD\nor check the git log\n\tgit log')
+        if (isVerbose) { console.log('...finished! if you want to confirm, run\n\tgit rev-list --count HEAD\nor check the git log\n\tgit log') }
     }
 }
 

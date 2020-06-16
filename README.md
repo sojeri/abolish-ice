@@ -19,7 +19,17 @@ Run `yarn` to install deps.
 Note that even if you've never run this before, you'll need to run reset first to generate the dates for the paint script.
 
 ```sh
-node reset.js
+node reset.js [--verbose]
+./paint.sh
+```
+
+### Calculating new dates
+
+If you want to calculate new dates but handle the reset yourself -- common if you want to use branch delete instead of reset HEAD -- run instead as:
+
+
+```sh
+node reset.js --calc
 ./paint.sh
 ```
 
