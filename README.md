@@ -2,7 +2,17 @@
 
 See [original repo](https://github.com/rossabaker/abolish-ice-graphiti).
 
-## Make your contributor graph say Abolish ICE
+contents
+
+- [Installing dependencies](#installing-dependencies)
+- [Usage](#usage)
+  - [Calculating new dates](#calculating-new-dates)
+- [Troubleshooting](#troubleshooting)
+  - [It didn't show up](#it-didnt-show-up)
+  - [It's hard to read](#its-hard-to-read)
+- [Credit](#credit)
+
+Make your contributor graph say Abolish ICE:
 
 ![Contributor Graph](graph.png)
 
@@ -19,9 +29,12 @@ Run `yarn` to install deps.
 Note that even if you've never run this before, you'll need to run reset first to generate the dates for the paint script.
 
 ```sh
+git checkout abolish-ice
 node reset.js [--verbose]
 ./paint.sh
 ```
+
+Fair warning: `./paint.sh` may take 10-15 minutes to run.
 
 ### Calculating new dates
 
@@ -29,8 +42,12 @@ If you want to calculate new dates but handle the reset yourself -- common if yo
 
 
 ```sh
+git checkout develop
 node reset.js --calc
+git branch -D abolish-ice
+git checkout -b abolish-ice
 ./paint.sh
+git push -f
 ```
 
 ## Troubleshooting
