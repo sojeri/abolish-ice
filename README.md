@@ -9,6 +9,7 @@ contents
   - [Calculating new dates](#calculating-new-dates)
 - [Troubleshooting](#troubleshooting)
   - [It didn't show up](#it-didnt-show-up)
+  - [It didn't show up _this time_](#it-didnt-show-up-this-time)
   - [It's hard to read](#its-hard-to-read)
 - [Credit](#credit)
 
@@ -22,14 +23,14 @@ Run `yarn` to install deps.
 
 ## Usage
 
-1. Make any changes you want to persist between runs to the `develop` branch. If you commit them to `abolish-ice`, they will get wiped the next time you reset and paint your graph!
-2. Run reset.js to reset the `abolish-ice` branch
+1. Make any changes you want to persist between runs to the `develop` branch. If you commit them to `main`, they will get wiped the next time you reset and paint your graph!
+2. Run reset.js to reset the `main` branch
 3. Run paint.sh to paint your contributions graph anew
 
 Note that even if you've never run this before, you'll need to run reset first to generate the dates for the paint script.
 
 ```sh
-git checkout abolish-ice
+git checkout main
 node reset.js [--verbose]
 ./paint.sh
 ```
@@ -44,8 +45,8 @@ If you want to calculate new dates but handle the reset yourself -- common if yo
 ```sh
 git checkout develop
 node reset.js --calc
-git branch -D abolish-ice
-git checkout -b abolish-ice
+git branch -D main
+git checkout -b main
 ./paint.sh
 git push -f
 ```
@@ -59,6 +60,10 @@ Specifically, make sure:
 
 * The repository you run paint.sh in is not a fork.
 * You run it on the default branch of your repository.
+
+### It didn't show up _this time_
+
+If you're running it again and GH isn't updating your contributions graph, try changing your default branch a couple times -- away from its current default and then back again. Sometimes GH needs that extra little kick to change the graph.
 
 ### It's hard to read
 

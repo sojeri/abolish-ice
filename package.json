@@ -1,6 +1,6 @@
 {
   "name": "abolish-ice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "shadow fork of rossabaker/abolish-ice-graphiti with added support for updating graph",
   "main": "reset.js",
   "repository": "git@github.com:sojeri/abolish-ice.git",

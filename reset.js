@@ -30,7 +30,7 @@ function main() {
         return
     }
     
-    resetDefaultBranch(isVerbose, 'main')
+    resetDefaultBranch(isVerbose, 'main', 'develop')
     // if make it this far sans errors, should just run paint.sh?
     // if so, log warning that it may take 5-20min depending on machine.
 

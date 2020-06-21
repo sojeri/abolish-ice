@@ -40,10 +40,10 @@ function getHowManyCommitsToDelete(defaultBranchName, resetBranchName) {
  * this is not super safe: it only checks commit counts.
  * a better way to do this might be deleting the main branch and then recreating from reset.
  * @param {*} isVerbose whether to verbose log
- * @param {*} defaultBranch the default branch name (abolish-ice if not specified)
- * @param {*} resetBranch the reset branch name (develop if not specified)
+ * @param {*} defaultBranch the default branch name
+ * @param {*} resetBranch the reset branch name
  */
-function resetDefaultBranch(isVerbose, defaultBranch = 'abolish-ice', resetBranch = 'develop') {
+function resetDefaultBranch(isVerbose, defaultBranch, resetBranch) {
     confirmDefaultBranchState(defaultBranch)
 
     let commitsToRemove = getHowManyCommitsToDelete(defaultBranch, resetBranch)
